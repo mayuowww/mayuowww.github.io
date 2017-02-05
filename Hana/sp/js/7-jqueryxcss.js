@@ -233,59 +233,7 @@ var Particle = (function(){
 
 
 
-var
-    AWS = require('aws-sdk'),
-    fs = require('fs'),
-    upload;
-
-AWS.config.update({
-    accessKeyId: 'AKIXXXXXXXXXXXXX',
-    secretAccessKey: 'XXXXXXXXXXXXXXXXXXXXXX',
-    region: 'ap-northeast-1'
-});
-
-upload = function ( file, callback ) {
-    var
-        bucketName = "hogehogeBucket",
-        fileName = file.filename,
-        body = fs.readFileSync(file.path),
-        s3 = new AWS.S3({params: {Bucket: bucketName, Key: fileName}});
-                        // ★ ↓この部分 ★
-    s3.upload({Body: body, ContentType: file.mimetype}, function(evt) {
-        // console.log(evt);
-    }).send(function(err, data) {
-        // 結果返す
-        callback(err, data);
-    });
-
-};
-
-module.exports = {
-    upload : upload
-};
-
-
-
-{
-   "Version": "2012-10-17",
-   "Statement": [
-      {
-         "Sid": "ExampleStatement1",
-         "Effect": "Allow",
-         "Principal": {
-            "AWS": "arn:aws:iam::Account-ID:user/Dave"
-         },
-         "Action": [
-            "s3:GetBucketLocation",
-            "s3:ListBucket",
-             "s3:GetObject"
-         ],
-         "Resource": [
-            "arn:aws:s3:::examplebucket"
-         ]
-      }
-   ]
-}
+//
 
 
 
