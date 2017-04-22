@@ -46,6 +46,12 @@ $('head').append(
 $(window).load(function() {
 $('#animation').delay(600).fadeIn(3000);
 });
+$('head').append(
+'<style type="text/css">.switch {display:none;}'
+);
+$(window).load(function() {
+$('.switch ').delay(600).fadeIn(3000);
+});
 
 
 // ページをロードしたりウィンドウのリサイズするたびに実行
@@ -219,6 +225,8 @@ var Particle = (function(){
               
     return Particle;
 })();
+
+
 
 
 

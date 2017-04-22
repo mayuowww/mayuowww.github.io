@@ -1410,6 +1410,39 @@ h1 {
     -webkit-transition: .35s;
     transition: .35s;
 }
+
+.switch {
+    position: absolute;
+    top: 201%;
+    margin: 0 auto;
+    float: left;
+    /* display: inline-block; */
+    text-align: center;
+    display: inline-block;
+    color: #696969;
+    width: 100%;
+    font-size: 3vw;
+}
+.switch {
+ -webkit-animation: switchtext 1.5s infinite alternate;
+ -moz-animation: switchtext 1.5s infinite alternate;
+ animation: switchtext 1.5s infinite alternate;
+ animation-delay:0;
+}
+@-webkit-keyframes switchtext {
+ from { opacity: 1.0; }
+ to { opacity: 0; }
+}
+@-moz-keyframes switchtext {
+ from { opacity: 1.0; }
+ to { opacity: 0; }
+}
+@keyframes switchtext {
+ from { opacity: 1.0; }
+ to { opacity: 0; }
+}
+
+
  @-webkit-keyframes fadeInRight {
  0% {
  opacity: 0;
