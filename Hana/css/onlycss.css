@@ -1427,7 +1427,7 @@ h1 {
  -webkit-animation: switchtext 1.5s infinite alternate;
  -moz-animation: switchtext 1.5s infinite alternate;
  animation: switchtext 1.5s infinite alternate;
- animation-delay:5;
+ animation-delay:-5s;
 }
 @-webkit-keyframes switchtext {
  from { opacity: 1.0; }
