@@ -1422,12 +1422,10 @@ h1 {
     color: #696969;
     width: 100%;
     font-size: 3vw;
-}
-.switch {
- -webkit-animation: switchtext 1.5s infinite alternate;
- -moz-animation: switchtext 1.5s infinite alternate;
- animation: switchtext 1.5s infinite alternate;
- animation-delay:-5s;
+    -webkit-animation: switchtext 1.5s infinite alternate;
+    -moz-animation: switchtext 1.5s infinite alternate;
+    animation: switchtext 1.5s infinite alternate;
+    animation-delay:-5s;
 }
 @-webkit-keyframes switchtext {
  from { opacity: 1.0; }
