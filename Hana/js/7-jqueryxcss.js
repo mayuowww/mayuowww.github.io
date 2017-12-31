@@ -255,7 +255,13 @@ var Particle = (function(){
 $(window).scroll(function(){
     $(article).css("opacity", 1 - $(window).scrollTop() / 2500);
   });
+function getPos() {
+    var scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : document.documentElement.scrollTop;
+}
 
+window.onscroll = function() {
+    getPos();
+}
 
 
 
