@@ -253,7 +253,7 @@ var Particle = (function(){
 
 //parallax
 $(window).scroll(function(){
-    $(article).css("opacity", 1 - $(window).scrollTop() / 2500);
+    $(article).css("opacity", 1 - $(window).scrollTop() / 381);
   });
 function getPos() {
     var scroll = (window.pageYOffset !== undefined) ? window.pageYOffset : document.documentElement.scrollTop;
