@@ -263,5 +263,20 @@ window.onscroll = function() {
     getPos();
 }
 
-
+window.addEventListener("click", function(){
+  let px = event.pageX;  //クリックX
+  let py = event.pageY;  //クリックY
+ 
+  let ox = window.pageXOffset;  //スクロールX
+  let oy = window.pageYOffset;  //スクロールY
+ 
+  let obj = document.elementFromPoint(px - ox, py - oy);  //object
+ 
+  let objX = obj.getBoundingClientRect().left;  //objectのX
+  let objY = obj.getBoundingClientRect().top;   //objectのY
+ 
+  console.log("クリック座標　x:" + (px-ox) + " y:" + (py-oy));
+  console.log("オブジェクト　" + obj);
+  console.log("オブジェクトの座標　x:" + objX + " y:" + objY);
+});
 
