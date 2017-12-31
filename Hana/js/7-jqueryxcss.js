@@ -251,11 +251,10 @@ var Particle = (function(){
     return Particle;
 })();
 
-
-
-
-
-//
+//parallax
+$(window).scroll(function(){
+    $(article).css("opacity", 1 - $(window).scrollTop() / 2500);
+  });
 
 
 
