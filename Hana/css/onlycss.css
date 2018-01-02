@@ -1,5 +1,16 @@
 @charset "utf-8";
 /* メールフォーム */
+#loader {
+    width: 96px;
+    height: 96px;
+    margin: -68px 0 0 -68px;
+    padding: 20px;
+    opacity: 0.5;
+    border-radius: 15px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
 
 section {
   opacity: 0;
