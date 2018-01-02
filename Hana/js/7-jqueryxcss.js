@@ -1,3 +1,9 @@
+//loading画像
+jQuery(window).load(function(){
+    // #loading は、ローディングの画像（を囲む）要素名に置き換えてください。
+    jQuery("#loading").hide();
+});
+
 // JavaScript Document
 $(function() {
   // スクロールのオフセット値
