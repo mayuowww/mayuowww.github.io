@@ -1,3 +1,24 @@
+.fade-in {
+  transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+	opacity:0;
+}
+
+		/*.fade-ani{opacity:0;position:relative;}
+		.fade-up{bottom:-50px;}
+		.fade-down{top:-50px;}
+		.fade-left{left:-50px;}
+		.fade-right{right:-50px;}
+
+		.fade-ani.showing{}
+		.fade-in.showing{opacity:1;}
+		.fade-up.showing{bottom:0px;opacity:1;}
+		.fade-down.showing{top:-0px;opacity:1;}
+		.fade-left.showing{left:-0px;opacity:1;}
+		.fade-right.showing{right:-0px;opacity:1;}*/
+
 @charset "utf-8";
 canvas#canvas {
     HEIGHT: 100%;
@@ -79,17 +100,6 @@ button {
 }
 
   /* メールフォーム end----*/
-  section#fifth {
-
-
-
-
-
-
-
-
-
-}
 p#description {
     margin: 60px 10px 30px 10px;
     font-size: 40px;
@@ -748,7 +758,7 @@ span.middle {
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
-	
+
 	font-family: 'Vollkorn', serif;
 	font-weight: 400;
 	text-align: center;
@@ -788,7 +798,7 @@ span.middle {
 }
 .overlay ul li a:after {
     content: '';
-  
+
     bottom: 34px;
     left: 50%;
     width: 0%;
@@ -876,4 +886,3 @@ p.ppp2 {
 	left: 50%; /* gif画像を画面横中央へ */
 	top: 50%; /* gif画像を画面縦中央へ */
 }
-

@@ -1,3 +1,40 @@
+$(window).on('load',function(){
+
+	// fade-in
+    $(window).scroll(function (){
+        $('.fade-in').each(function(){
+            var POS = $(this).offset().top;  //fade-inがついている要素の位置
+            var scroll = $(window).scrollTop();  //スクロール一
+            var windowHeight = $(window).height();  //ウィンドウの高さ
+
+            if (scroll > POS - windowHeight + windowHeight -1000){
+                $(this).css("opacity","1" );
+            } else {
+                $(this).css("opacity","0" );
+            }
+        });
+    });
+});
+
+//クリック座標取得
+window.addEventListener("click", function(){
+  let px = event.pageX;  //クリックX
+  let py = event.pageY;  //クリックY
+
+  let ox = window.pageXOffset;  //スクロールX
+  let oy = window.pageYOffset;  //スクロールY
+
+  let obj = document.elementFromPoint(px - ox, py - oy);  //object
+
+  let objX = obj.getBoundingClientRect().left;  //objectのX
+  let objY = obj.getBoundingClientRect().top;   //objectのY
+
+  console.log("クリック座標　x:" + (px-ox) + " y:" + (py-oy));
+  console.log("オブジェクト　" + obj);
+  console.log("オブジェクトの座標　x:" + objX + " y:" + objY);
+});
+
+
 // JavaScript Document
 $(function() {
   // スクロールのオフセット値
@@ -51,11 +88,11 @@ $('#animation').delay(600).fadeIn(3000);
 // ページをロードしたりウィンドウのリサイズするたびに実行
 $(function () {
     sizing();
-    Draw();
+    // Draw();
     $(window).resize(function() {
         sizing();
         Draw();
-        
+
     });
 });
 
@@ -99,26 +136,26 @@ var tmp;
 //初期処理
 window.onload = function(){
     var canvas = document.getElementById("canvas");
-    
+
     //画面調整
     canvas.width = width = window.innerWidth;
     canvas.height = height = window.innerWidth;
-    
+
     center.x = width / 2;
     center.y = height / 2;
-    
+
     ctx = canvas.getContext("2d");
     ctx.fillStyle = "rgb(0, 0, 0)";
     ctx.fillRect(0, 0, width, height);
-    
+
     //マウス操作処理
     canvas.addEventListener("mousedown", mouseDown, false);
-    
+
     //particleの作成
     for(var i = 0; i < particlesNum; i++){
         particles.push(new Particle());
     }
-     
+
     //アニメーション
     setInterval(loop, 1000 / 50);
 }
@@ -132,7 +169,7 @@ function mouseDown(){
 function loop(){
     ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
     ctx.fillRect(0, 0, width, height);
-    
+
     for(var i = 0; i < particles.length; i++){
         var particle = particles[i];
         particle.update();
@@ -145,26 +182,26 @@ var Particle = (function(){
     function Particle(){
         this.generate();
     }
-    
+
     Particle.prototype.generate = function(fadeBack){
         this.angle = 2 * Math.random() * Math.PI;
         tmp = Math.random() * 20;
-        
+
         if(!isMouseDown){
         	this.radius = (Math.random() * 5) + 1;
             this.x = center.x + circleRadius * Math.cos(this.angle);
         	this.y = center.y + circleRadius * Math.sin(this.angle);
-        }        
+        }
         else if(isMouseDown){
             this.radius = (Math.random() * 3) + 3;
             this.opacity = 1.0;
             this.x = center.x + 30 * Math.cos(this.angle);
         	this.y = center.y + 30 * Math.sin(this.angle);
         }
-               
+
         this.xSpeed = tmp * Math.cos(this.angle);
         this.ySpeed = tmp * Math.sin(this.angle);
-        
+
         //条件分岐
         if(!isMouseDown){
         	this.xAccel = 10;
@@ -174,27 +211,27 @@ var Particle = (function(){
             this.xAccel = -Math.cos(this.angle);
             this.yAccel = -Math.sin(this.angle);
         }
-        
+
         this.color = "rgba(" + Math.floor(Math.random() * 255) + "," +
             								Math.floor(Math.random() * 255) + "," +
 											Math.floor(Math.random() * 255) + "," +
                                             this.radius / 6 + ")";
     }
-    
+
     Particle.prototype.update = function(){
         this.x += this.xSpeed;
         this.y += this.ySpeed;
-        
+
         if(isMouseDown){
             this.xSpeed += this.xAccel;
             this.ySpeed += this.yAccel;
         }
-        
+
         if(this.check()){
             this.generate();
         }
     }
-    
+
     Particle.prototype.check = function(){
         if(this.x < 0 || this.x > width){
             this.generate();
@@ -202,9 +239,9 @@ var Particle = (function(){
         else if(this.y < 0 || this.y > height){
             this.generate();
         }
- 
+
         if(isMouseDown){
-            var distance = ((tmp = (center.x - this.x)) * tmp) + 
+            var distance = ((tmp = (center.x - this.x)) * tmp) +
                 					((tmp = (center.y - this.y)) * tmp * 20);
             this.opacity = 10000 / distance;
         	if (1 < this.opacity) {
@@ -220,21 +257,17 @@ var Particle = (function(){
         	}
         }
     }
-    
+
     Particle.prototype.draw = function(){
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fill();
     }
-              
+
     return Particle;
 })();
 
 
 
 //
-
-
-
-
